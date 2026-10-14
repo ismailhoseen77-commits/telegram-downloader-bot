@@ -65,11 +65,12 @@ async def download_media(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await msg.edit_text("❌ প্রসেস করতে সমস্যা হয়েছে। আবার চেষ্টা করুন।")
 
 if __name__ == '__main__':
-    TOKEN = os.environ.get("BOT_TOKEN")
-    if TOKEN:
-        app = ApplicationBuilder().token(TOKEN).build()
-        app.add_handler(CommandHandler("start", start))
-        app.add_handler(MessageHandler(filters.TEXT & (~filters.COMMAND), download_media))
-        print("Bot Run Hochhe...")
-        app.run_polling()
-      
+    # আপনার টোকেনটি এখানে সরাসরি যুক্ত করা হলো
+    TOKEN = "8880451711:AAFQbz15OGsQtysfvpg_qyUVAArSZeoiitg"
+    
+    app = ApplicationBuilder().token(TOKEN).build()
+    app.add_handler(CommandHandler("start", start))
+    app.add_handler(MessageHandler(filters.TEXT & (~filters.COMMAND), download_media))
+    print("Bot Run Hochhe...")
+    app.run_polling()
+    
